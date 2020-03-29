@@ -189,5 +189,25 @@
       }
     }
   },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "karma"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "karma"
+    },
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush",
+      "inlineStyle": true
+    }
+  },
   "defaultProject": "planning-poker-client"
 }

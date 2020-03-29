@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { WebSocketService } from '@planning-poker-client/poker-room';
-import { Square, SquareChangeRequest } from '@planning-poker-client/square';
+import { Square, SquareChangeRequest, WebSocketService } from '@planning-poker-client/square';
 
 @Component({
   selector: 'app-root',
