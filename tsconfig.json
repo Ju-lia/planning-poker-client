@@ -11,11 +11,11 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {},
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@planning-poker-client/poker-room": ["libs/poker-room/src/index.ts"],
+      "@planning-poker-client/square": ["libs/square/src/index.ts"]
+    },
     "rootDir": "."
   },
   "angularCompilerOptions": {

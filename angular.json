@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "",
   "projects": {
     "planning-poker-client": {
@@ -23,9 +23,7 @@
               "apps/planning-poker-client/src/favicon.ico",
               "apps/planning-poker-client/src/assets"
             ],
-            "styles": [
-              "apps/planning-poker-client/src/styles.css"
-            ],
+            "styles": ["apps/planning-poker-client/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -87,9 +85,7 @@
               "apps/planning-poker-client/src/favicon.ico",
               "apps/planning-poker-client/src/assets"
             ],
-            "styles": [
-              "apps/planning-poker-client/src/styles.css"
-            ],
+            "styles": ["apps/planning-poker-client/src/styles.css"],
             "scripts": []
           }
         },
@@ -100,9 +96,7 @@
               "apps\\planning-poker-client\\tsconfig.app.json",
               "apps\\planning-poker-client\\tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -127,12 +121,73 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps\\planning-poker-client-e2e\\tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    },
+    "poker-room": {
+      "projectType": "library",
+      "root": "libs/poker-room",
+      "sourceRoot": "libs/poker-room/src",
+      "prefix": "planning-poker-client",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/poker-room/tsconfig.lib.json",
+              "libs/poker-room/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/poker-room/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/poker-room/jest.config.js",
+            "tsConfig": "libs/poker-room/tsconfig.spec.json",
+            "setupFile": "libs/poker-room/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "square": {
+      "projectType": "library",
+      "root": "libs/square",
+      "sourceRoot": "libs/square/src",
+      "prefix": "planning-poker-client",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/square/tsconfig.lib.json",
+              "libs/square/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/square/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/square/jest.config.js",
+            "tsConfig": "libs/square/tsconfig.spec.json",
+            "setupFile": "libs/square/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
   "defaultProject": "planning-poker-client"
 }

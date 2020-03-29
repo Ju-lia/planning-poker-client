@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "planningPokerClient",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "planning-poker-client",
+      "kebab-case"
+    ]
+  }
+}
