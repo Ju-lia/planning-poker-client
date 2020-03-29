@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Square } from '@planning-poker-client/square';
+import { PokerCard } from '@planning-poker-client/poker-card';
 
 @Component({
   selector: 'planning-poker-client-pitch',
@@ -21,18 +21,23 @@ export class PitchComponent {
     this.messages.unshift(message);
   }
   @Input()
-  squares: Square[] = [];
+  pokerCards: PokerCard[] = [];
 
-  @Output() squareClicked = new EventEmitter<{
-    squareId: number;
+  @Output() pokerCardClicked = new EventEmitter<{
+    pokerCardId: number;
     color: string;
   }>();
 
-  squareClick(square: Square) {
-    if (square.color === this.currentColor) {
+  pokerCardClick(pokerCard: PokerCard) {
+    if (pokerCard.Color === this.currentColor) {
       return;
     }
+    console.log('pokerCard', pokerCard);
+    console.log('pokerCard', pokerCard.Id);
 
-    this.squareClicked.emit({ squareId: square.id, color: this.currentColor });
+    this.pokerCardClicked.emit({
+      pokerCardId: pokerCard.Id,
+      color: this.currentColor
+    });
   }
 }

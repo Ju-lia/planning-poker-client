@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { WebSocketService } from '@planning-poker-client/square';
+import { WebSocketService } from '@planning-poker-client/poker-card';
 
 import { PitchWidgetComponent } from './pitch-widget/pitch-widget.component';
 import { PitchComponent } from './pitch/pitch.component';

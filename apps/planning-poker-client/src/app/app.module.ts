@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { WebSocketService } from '@planning-poker-client/poker-card';
 import { PokerRoomModule } from '@planning-poker-client/poker-room';
-import { WebSocketService } from '@planning-poker-client/square';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

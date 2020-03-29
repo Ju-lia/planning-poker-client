@@ -126,28 +126,28 @@
         }
       }
     },
-    "square": {
+    "poker-card": {
       "projectType": "library",
-      "root": "libs/square",
-      "sourceRoot": "libs/square/src",
+      "root": "libs/poker-card",
+      "sourceRoot": "libs/poker-card/src",
       "prefix": "planning-poker-client",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/square/tsconfig.lib.json",
-              "libs/square/tsconfig.spec.json"
+              "libs/poker-card/tsconfig.lib.json",
+              "libs/poker-card/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/square/**"]
+            "exclude": ["**/node_modules/**", "!libs/poker-card/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/square/jest.config.js",
-            "tsConfig": "libs/square/tsconfig.spec.json",
-            "setupFile": "libs/square/src/test-setup.ts"
+            "jestConfig": "libs/poker-card/jest.config.js",
+            "tsConfig": "libs/poker-card/tsconfig.spec.json",
+            "setupFile": "libs/poker-card/src/test-setup.ts"
           }
         }
       },

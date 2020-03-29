@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Square, SquareChangeRequest, WebSocketService } from '@planning-poker-client/square';
+import { PokerCard, PokerCardChangeRequest, WebSocketService } from '@planning-poker-client/poker-card';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,19 +11,19 @@ import { Observable } from 'rxjs';
 export class PitchWidgetComponent {
   name$: Observable<string>;
   message$: Observable<string>;
-  squares$: Observable<Square[]>;
+  pokerCards$: Observable<PokerCard[]>;
 
   constructor(private socketService: WebSocketService) {
     this.socketService.startSocket();
     this.message$ = this.socketService.announcement$;
-    this.squares$ = this.socketService.squares$;
+    this.pokerCards$ = this.socketService.pokerCards$;
     this.name$ = this.socketService.name$;
   }
 
-  squareClick(event: { color: string; squareId: number }) {
-    this.socketService.sendSquareChangeRequest({
-      color: event.color,
-      id: event.squareId
-    } as SquareChangeRequest);
+  pokerCardClick(event: { color: string; pokerCardId: number }) {
+    this.socketService.sendPokerCardChangeRequest({
+      Color: event.color,
+      Id: event.pokerCardId
+    } as PokerCardChangeRequest);
   }
 }

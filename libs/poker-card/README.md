@@ -1,7 +1,7 @@
-# square
+# poker-card
 
 This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
-Run `nx test square` to execute the unit tests.
+Run `nx test poker-card` to execute the unit tests.

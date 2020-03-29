@@ -1,14 +1,15 @@
 import { async, TestBed } from '@angular/core/testing';
-import { SquareModule } from './square.module';
 
-describe('SquareModule', () => {
+import { PokerCardModule } from './poker-card.module';
+
+describe('PokerCardModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SquareModule]
+      imports: [PokerCardModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(SquareModule).toBeDefined();
+    expect(PokerCardModule).toBeDefined();
   });
 });
