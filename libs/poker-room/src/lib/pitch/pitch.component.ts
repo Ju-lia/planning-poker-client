@@ -29,10 +29,10 @@ export class PitchComponent {
   }>();
 
   squareClick(square: Square) {
-    if (square.Color === this.currentColor) {
+    if (square.color === this.currentColor) {
       return;
     }
 
-    this.squareClicked.emit({ squareId: square.Id, color: this.currentColor });
+    this.squareClicked.emit({ squareId: square.id, color: this.currentColor });
   }
 }

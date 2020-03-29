@@ -21,9 +21,9 @@ export class PitchWidgetComponent {
   }
 
   squareClick(event: { color: string; squareId: number }) {
-    const req = new SquareChangeRequest();
-    req.Id = event.squareId;
-    req.Color = event.color;
-    this.socketService.sendSquareChangeRequest(req);
+    this.socketService.sendSquareChangeRequest({
+      color: event.color,
+      id: event.squareId
+    } as SquareChangeRequest);
   }
 }

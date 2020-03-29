@@ -1,4 +1,4 @@
 export class Square {
-  Id: number;
-  Color: string;
+  id: number;
+  color: string;
 }

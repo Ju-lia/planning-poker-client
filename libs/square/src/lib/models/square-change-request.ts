@@ -1,5 +1,5 @@
 export class SquareChangeRequest {
-  Id: number;
-  Color: string;
-  Name: string;
+  id: number;
+  color: string;
+  name: string;
 }

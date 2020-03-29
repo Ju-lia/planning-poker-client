@@ -11,7 +11,6 @@ export class WebSocketService {
   announcement$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   name$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private name: string;
-  constructor() {}
 
   startSocket() {
     this.socket = new WebSocket('wss://localhost:5001/ws');
@@ -19,7 +18,7 @@ export class WebSocketService {
       console.log('opened');
     });
     this.socket.addEventListener('message', ev => {
-      var messageBox: SocketMessage = JSON.parse(ev.data);
+      const messageBox: SocketMessage = JSON.parse(ev.data);
       console.log('message object', messageBox);
       switch (messageBox.MessageType) {
         case 'name':
@@ -39,8 +38,8 @@ export class WebSocketService {
   }
 
   sendSquareChangeRequest(req: SquareChangeRequest) {
-    req.Name = this.name;
-    var requestAsJson = JSON.stringify(req);
+    req.name = this.name;
+    const requestAsJson = JSON.stringify(req);
     this.socket.send(requestAsJson);
   }
 }
