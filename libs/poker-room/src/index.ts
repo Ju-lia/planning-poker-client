@@ -1,1 +1,1 @@
-export * from '../../square/src/lib/lib/poker-room.module';
+export * from './lib/poker-room.module';

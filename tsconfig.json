@@ -19,8 +19,8 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@planning-poker-client/poker-room": ["libs/poker-room/src/index.ts"],
-      "@planning-poker-client/square": ["libs/square/src/index.ts"]
+      "@planning-poker-client/square": ["libs/square/src/index.ts"],
+      "@planning-poker-client/poker-room": ["libs/poker-room/src/index.ts"]
     }
   },
   "angularCompilerOptions": {
