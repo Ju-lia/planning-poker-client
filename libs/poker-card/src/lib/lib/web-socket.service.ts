@@ -39,7 +39,7 @@ export class WebSocketService {
   }
 
   sendPokerCardChangeRequest(req: PokerCardChangeRequest) {
-    req.name = this.name;
+    req.Name = this.name;
 
     const requestAsJson = JSON.stringify(req);
     this.socket.send(requestAsJson);
