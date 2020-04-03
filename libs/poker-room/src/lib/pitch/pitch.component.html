@@ -1,20 +1,30 @@
 <div class="flex-container">
-  <div>
-    Current Color:
-    <select [(ngModel)]="currentColor">
-      <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
-    </select>
-  </div>
   <div class="flex-item">
     <label>Your name:{{ name }}</label>
 
     <div
       *ngFor="let pokerCard of pokerCards"
-      [style.background-color]="pokerCard.Color"
       style="color:white;font-size:24px;width:50px;height:50px;margin:2px;"
       (click)="pokerCardClick(pokerCard)"
     >
-      {{ pokerCard.Id }}
+      {{ pokerCard.Value }}
+      {{ pokerCard.Name }}
+    </div>
+  </div>
+  <div class="flex-item">
+    <label>Your name:{{ name }}</label>
+    <div *ngFor="let pokerCard of pokerCards">
+      {{ pokerCard.Value }}
+      {{ pokerCard.Name }}
+    </div>
+  </div>
+
+  <div class="flex-item">
+    <div *ngFor="let pokerCard of userPokerCards">
+      <a (click)="pokerCardClick(pokerCard)">
+        {{ pokerCard.Value }}
+        {{ pokerCard.Name }}
+      </a>
     </div>
   </div>
 

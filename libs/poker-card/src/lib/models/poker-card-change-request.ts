@@ -1,5 +1,5 @@
 export class PokerCardChangeRequest {
-  Id: number;
-  Color: string;
+  Value: number;
+  Disabled: boolean;
   Name: string;
 }

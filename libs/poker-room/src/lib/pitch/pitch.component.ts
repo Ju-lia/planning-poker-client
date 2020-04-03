@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { PokerCard } from '@planning-poker-client/poker-card';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {PokerCard} from '@planning-poker-client/poker-card';
 
 @Component({
   selector: 'planning-poker-client-pitch',
@@ -9,35 +9,32 @@ import { PokerCard } from '@planning-poker-client/poker-card';
 })
 export class PitchComponent {
   announcementSub;
-  colors: string[] = ['red', 'green', 'blue'];
-  currentColor = 'red';
+  value: number;
   messages: string[] = [];
-
+  userPokerCards: PokerCard[] = [
+    { Value: 1, Disabled: false },
+    { Value: 2, Disabled: false },
+    { Value: 3, Disabled: false },
+    { Value: 5, Disabled: false },
+    { Value: 8, Disabled: false }
+  ];
   @Input()
   name: string;
   @Input()
   set message(message: string) {
-    console.log('message', message);
     this.messages.unshift(message);
   }
   @Input()
   pokerCards: PokerCard[] = [];
 
-  @Output() pokerCardClicked = new EventEmitter<{
-    pokerCardId: number;
-    color: string;
-  }>();
+  @Output() pokerCardClicked = new EventEmitter<PokerCard>();
 
   pokerCardClick(pokerCard: PokerCard) {
-    if (pokerCard.Color === this.currentColor) {
+    if (pokerCard.Value === this.value) {
       return;
     }
-    console.log('pokerCard', pokerCard);
-    console.log('pokerCard', pokerCard.Id);
+    console.log({ ...pokerCard, Name: this.name });
 
-    this.pokerCardClicked.emit({
-      pokerCardId: pokerCard.Id,
-      color: this.currentColor
-    });
+    this.pokerCardClicked.emit({ ...pokerCard, Name: this.name });
   }
 }

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PokerCard, PokerCardChangeRequest, WebSocketService } from '@planning-poker-client/poker-card';
-import { Observable } from 'rxjs';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {PokerCard, PokerCardChangeRequest, WebSocketService} from '@planning-poker-client/poker-card';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'planning-poker-client-pitch-widget',
@@ -20,10 +20,11 @@ export class PitchWidgetComponent {
     this.name$ = this.socketService.name$;
   }
 
-  pokerCardClick(event: { color: string; pokerCardId: number }) {
+  pokerCardClick(event: PokerCard) {
     this.socketService.sendPokerCardChangeRequest({
-      Color: event.color,
-      Id: event.pokerCardId
+      Disabled: event.Disabled,
+      Name: event.Name,
+      Value: event.Value
     } as PokerCardChangeRequest);
   }
 }

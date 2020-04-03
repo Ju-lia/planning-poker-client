@@ -1,4 +1,5 @@
 export class PokerCard {
-  Id: number;
-  Color: string;
+  Value: number;
+  Disabled: boolean;
+  Name?: string;
 }
