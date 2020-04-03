@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {PokerCard} from '@planning-poker-client/poker-card';
+import {isEmpty, isUndefined} from 'lodash-es';
 
 @Component({
   selector: 'planning-poker-client-pitch',
@@ -9,7 +10,7 @@ import {PokerCard} from '@planning-poker-client/poker-card';
 })
 export class PitchComponent {
   announcementSub;
-  value: number;
+  selectedPokerCard: PokerCard;
   messages: string[] = [];
   userPokerCards: PokerCard[] = [
     { Value: 1, Disabled: false },
@@ -22,7 +23,13 @@ export class PitchComponent {
   name: string;
   @Input()
   set message(message: string) {
+    if (isEmpty(message)) {
+      return;
+    }
     this.messages.unshift(message);
+    if (this.messages.length > 3) {
+      this.messages.pop();
+    }
   }
   @Input()
   pokerCards: PokerCard[] = [];
@@ -30,11 +37,13 @@ export class PitchComponent {
   @Output() pokerCardClicked = new EventEmitter<PokerCard>();
 
   pokerCardClick(pokerCard: PokerCard) {
-    if (pokerCard.Value === this.value) {
+    if (
+      !isUndefined(this.selectedPokerCard) &&
+      pokerCard.Value === this.selectedPokerCard.Value
+    ) {
       return;
     }
-    console.log({ ...pokerCard, Name: this.name });
-
+    this.selectedPokerCard = pokerCard;
     this.pokerCardClicked.emit({ ...pokerCard, Name: this.name });
   }
 }

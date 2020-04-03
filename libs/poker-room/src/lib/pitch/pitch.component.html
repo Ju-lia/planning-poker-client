@@ -1,36 +1,47 @@
-<div class="flex-container">
-  <div class="flex-item">
-    <label>Your name:{{ name }}</label>
+<div class="container-fluid vh-100">
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="row d-flex">
+        <label>Welcome {{ name }}!</label>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-3 col-lg-2" *ngFor="let pokerCard of pokerCards">
+          <div class="card text-center my-3">
+            <div class="card-header">
+              {{ pokerCard.Name }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ pokerCard.Value }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div
-      *ngFor="let pokerCard of pokerCards"
-      style="color:white;font-size:24px;width:50px;height:50px;margin:2px;"
-      (click)="pokerCardClick(pokerCard)"
-    >
-      {{ pokerCard.Value }}
-      {{ pokerCard.Name }}
+      <div class="row d-flex justify-content-center fixed-bottom">
+        <a
+          class="col-sm-2"
+          (click)="pokerCardClick(pokerCard)"
+          *ngFor="let pokerCard of userPokerCards"
+        >
+          <div
+            class="card text-center my-3"
+            [ngClass]="{ 'bg-light': selectedPokerCard === pokerCard }"
+          >
+            <div class="card-body">
+              <h5 class="card-title">{{ pokerCard.Value }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="flex-item">
-    <label>Your name:{{ name }}</label>
-    <div *ngFor="let pokerCard of pokerCards">
-      {{ pokerCard.Value }}
-      {{ pokerCard.Name }}
+    <div class="col-sm-2">
+      <div
+        class="alert alert-light"
+        role="alert"
+        *ngFor="let message of messages"
+      >
+        {{ message }}
+      </div>
     </div>
-  </div>
-
-  <div class="flex-item">
-    <div *ngFor="let pokerCard of userPokerCards">
-      <a (click)="pokerCardClick(pokerCard)">
-        {{ pokerCard.Value }}
-        {{ pokerCard.Name }}
-      </a>
-    </div>
-  </div>
-
-  <div class="flex-item">
-    <ul>
-      <li *ngFor="let message of messages">{{ message }}</li>
-    </ul>
   </div>
 </div>
